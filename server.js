@@ -5,7 +5,7 @@ const multer = require('multer');
 const path = require('path');
 const session = require('express-session'); // npm install express-session
 const MySQLStore = require('express-mysql-session')(session); // npm install express-mysql-session
-const bcrypt = require('bcrypt'); //install bcrypt using this commant 'npm install bcrypt'
+const bcrypt = require('bcryptjs'); //install bcrypt using this commant 'npm install bcrypt'
 
 const app = express();
 // app.use(cors());
