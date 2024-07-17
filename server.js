@@ -5,7 +5,7 @@ const multer = require('multer');
 const path = require('path');
 const session = require('express-session'); // npm install express-session
 const MySQLStore = require('express-mysql-session')(session); // npm install express-mysql-session
-const bcrypt = require('bcryptjs'); //install bcrypt using this commant 'npm install bcrypt'
+const bcrypt = require('bcrypt'); //install bcrypt using this commant 'npm install bcrypt'
 
 const app = express();
 // app.use(cors());
@@ -21,12 +21,11 @@ const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '0511',
-  database: 'spantaneous',
-  port: '3306'
+  database: 'spantaneous'
 });
 
 // Error handling for database connection
-connection.getConnection((err) => {
+connection.connect((err) => {
   if (err) {
     console.error('Error connecting to database:', err);
     return;
@@ -1239,7 +1238,3 @@ app.get('/staffs', (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
-
-// app.listen(process.env.PORT || 5000, () => {
-//   console.log(`Server running on port ${PORT}`);
-// });
